@@ -2,41 +2,74 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Para Ti ❤️</title>
 
 <style>
 body{
-    background:pink;
+    margin:0;
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
-    margin:0;
+    background:pink;
+    font-family:Arial, sans-serif;
 }
 
 .corazon{
-    font-family:Arial;
-    font-size:20px;
-    text-align:center;
-    line-height:1.5;
-    color:red;
-    white-space:pre;
+    position:relative;
+    width:200px;
+    height:200px;
+    background:red;
+    transform:rotate(-45deg);
+    animation:latir 1s infinite;
+}
+
+.corazon::before,
+.corazon::after{
+    content:"";
+    position:absolute;
+    width:200px;
+    height:200px;
+    background:red;
+    border-radius:50%;
+}
+
+.corazon::before{
+    top:-100px;
+    left:0;
+}
+
+.corazon::after{
+    left:100px;
+    top:0;
+}
+
+.texto{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(45deg);
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+    z-index:1;
+}
+
+@keyframes latir{
+    0%,100%{
+        transform:rotate(-45deg) scale(1);
+    }
+    50%{
+        transform:rotate(-45deg) scale(1.1);
+    }
 }
 </style>
 </head>
 <body>
 
 <div class="corazon">
-      Te quiero
-   Te quiero   Te quiero
-
-Te quiero   Te quiero   Te quiero
-
-Te quiero   Te quiero   Te quiero
-
-   Te quiero   Te quiero
-
-      Te quiero
+    <div class="texto">Te quiero</div>
 </div>
 
 </body>
